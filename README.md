@@ -9,9 +9,9 @@ The data can supplied to the table component can be changed by supplying the arg
 
 Contains an HTML template to test the component.
 
-## Using table compenent
+## Using table component
 
-The component is initialsed by a call to `myTable()` function, to which the arguemnts are passed.
+The component is initialized by a call to `myTable()` function, to which the arguemnts are passed.
 
 The component provides functions to add, delete and update its rows:
 
