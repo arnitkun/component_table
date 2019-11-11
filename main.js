@@ -27,5 +27,21 @@ function MyTable(options, containerElement) {
         this.renderHead();
         this.renderBody();
       };
+
+      this.renderHead = () => {
+        let table = document.createElement("table");
+        let thead = document.createElement("thead");
+        let tr = document.createElement("tr");
+    
+        this.colDefs.forEach(col => {// style the columns
+          let td = document.createElement("td");
+          td.innerText = col.label;
+          td.style.width = col.width;
+          tr.appendChild(td);
+        });
+        thead.appendChild(tr);
+        table.appendChild(thead);
+        this.containerElement.appendChild(table);
+      };
     
 }
