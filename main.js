@@ -1,3 +1,33 @@
+const options = { //sample test data
+    colDefs: [
+      {
+        label: "Text Columns",
+        width: "40%",
+        type: "text"
+      },
+      {
+        label: "Input Column",
+        width: "60%",
+        type: "input"
+      },
+      {
+        label: "Checkbox Column",
+        width: "30px",
+        type: "checkbox"
+      }
+    ],
+    data: [
+      {
+        id: "uniqueRowId",
+        colData: ["Value1", "value2", true]
+      },
+      {
+        id: "uniqueRowId1",
+        colData: ["Value11", "value22", false]
+      }
+    ]
+  };
+  
 function MyTable(options, containerElement) {
     this.colDefs = options.colDefs;
     this.data = options.data;
@@ -80,3 +110,32 @@ function MyTable(options, containerElement) {
 const containerElement = document.getElementById("app");
 var table = new MyTable(options, containerElement);
 table.render();
+
+setTimeout(//timeout for testing
+    () =>
+      table.addRows([
+        {
+          id: "uniqueRowId3",
+          colData: ["Value111", "value222", false]
+        },
+        {
+          id: "uniqueRowId4",
+          colData: ["Value1111", "value2222", true]
+        }
+      ]),
+    1000
+  );
+  
+  setTimeout(() => table.deleteRows(["uniqueRowId1"]), 3000);
+  
+  setTimeout(
+    () =>
+      table.updateRows([
+        {
+          id: "uniqueRowId3",
+          colData: ["Value3", "value3", true]
+        }
+      ]),
+    5000
+  );
+  
