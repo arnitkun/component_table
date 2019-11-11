@@ -33,9 +33,15 @@ function MyTable(options, containerElement) {
     this.data = options.data;
     this.containerElement = containerElement;
   
-    this.addRows = rowDataArray => {
-      this.data = [...this.data, ...rowDataArray];
-      this.renderBody();
+    this.addRows = rowDataArray => { // currently it is possible to add row with the same id
+      if(rowDataArray.find(
+          ele => ele.id === rowDataArray.id)
+       ){ 
+         return;
+        } else {
+          this.data = [...this.data, ...rowDataArray];
+          this.renderBody();
+      }
     };
 
     this.deleteRows = deleteRowsIdArray => {
@@ -132,7 +138,7 @@ setTimeout(//timeout for testing
     () =>
       table.updateRows([
         {
-          id: "uniqueRowId3",
+          id: "uniqueRowId7",
           colData: ["Value3", "value3", true]
         }
       ]),
