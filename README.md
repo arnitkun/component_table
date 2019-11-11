@@ -1,4 +1,4 @@
-##Intorduction
+## Introduction
 
 A simple table component made in pure javacript.
 
