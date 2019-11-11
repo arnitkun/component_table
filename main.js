@@ -22,5 +22,10 @@ function MyTable(options, containerElement) {
         });
         this.renderBody();
       };
+
+      this.render = () => {
+        this.renderHead();
+        this.renderBody();
+      };
     
 }
