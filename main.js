@@ -33,8 +33,8 @@ function MyTable(options, containerElement) {
     this.data = options.data;
     this.containerElement = containerElement;
   
-    this.addRows = rowDataArray => { // currently it is possible to add row with the same id
-      if(rowDataArray.find(
+    this.addRows = rowDataArray => { 
+      if(rowDataArray.find(//check if row id already exists
           ele => ele.id === rowDataArray.id)
        ){ 
          return;
@@ -54,7 +54,7 @@ function MyTable(options, containerElement) {
           const updateElement = updateRowsDataArray.find(
             ele => ele.id === row.id
           );
-          return updateElement ? updateElement : row;
+          return updateElement ? updateElement : row;// add updated row if no element exists
         });
         this.renderBody();
       };
